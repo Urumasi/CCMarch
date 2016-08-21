@@ -89,11 +89,11 @@ do -- Environment
           if dist<self.step then
             hit = true
             local dot = norm:dot(self.lightdir)
-            context.setBackgroundColor(u3d.getColor("green", dot))
+            context.setBackgroundColor(u3d.getColor("green", (dot+0.5)/1.5))
           end
         end
         if not hit then context.setBackgroundColor(colors.lightGray) end
-        write(" ")
+        context.write(" ")
         _tryYield()
       end
     end
