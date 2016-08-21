@@ -4,7 +4,7 @@ local vec3 = require "vec3"
 local u3d = {}
 
 do -- Objects
-  print(fs.dir())
+  print(shell.dir())
   --local list = fs.list()
 end
 

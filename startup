@@ -1,0 +1,28 @@
+_G._LOADED = {}
+
+do
+  
+  local tPath = {
+    "?",
+    "?.lua",
+    "lib/?",
+    "lib/?.lua",
+    "lib/?/?",
+    "lib/?/?.lua",
+    "lib/?/init",
+    "lib/?/init.lua",
+  }
+
+  function _G.require(s)
+    if _LOADED[s] then return _LOADED[s] end
+    for _, v in ipairs(tPath) do
+      local sPath = v:gsub("?", s)
+      if fs.exists(sPath) and not fs.isDir(sPath) then
+        _LOADED[s] = loadfile(sPath)()
+        return _LOADED[s]
+      end
+    end
+    error(s..": file not found", 2)
+  end
+
+end

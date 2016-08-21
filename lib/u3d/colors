@@ -1,4 +1,26 @@
-red;ec7f
+
+print(""+5)
+return {
+	red = {
+    colors.red,
+    colors.brown,
+    colors.gray,
+    colors.black,
+  },
+  green = {
+    colors.lime,
+    colors.green,
+    colors.cyan,
+    colors.gray,
+    colors.black,
+  },
+  blue = {
+    colors.lightBlue,
+    colors.cyan,
+  },
+}
+
+--[[red;ec7f
 green;5d97f
 blue;39b7
 yellow;41c7f
@@ -7,4 +29,4 @@ cyan;97f
 magenta;2ac7f
 white;087f
 gray;87f
-black;7f
+black;7f]]
