@@ -18,11 +18,39 @@ do
     for _, v in ipairs(tPath) do
       local sPath = v:gsub("?", s)
       if fs.exists(sPath) and not fs.isDir(sPath) then
-        _LOADED[s] = loadfile(sPath)()
+        local f, err = loadfile(sPath)
+        if type(f)~="function" then
+          error(err)
+        end
+        _LOADED[s] = f()
         return _LOADED[s]
       end
     end
     error(s..": file not found", 2)
+  end
+
+  function _G.copy(t)
+    if type(t)~="table" then return t end
+    local c = {}
+    for k, v in pairs(t) do
+      c[k] = v
+    end
+    return c
+  end
+
+  function _G.deep_copy(t, seen)
+    if type(t)~="table" then return t end
+    local seen = seen or {}
+    if seen[t] then
+      return seen[t]
+    end
+    local c = {}
+    for k, v in pairs(t) do
+      local v2 = deep_copy(v)
+      seen[v] = v2
+      c[k] = v2
+    end
+    return c
   end
 
 end

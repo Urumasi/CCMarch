@@ -10,6 +10,9 @@ function mt:__index(key)
   if key:find("^[xy][xy]$") then
     return vec2(self[key:sub(1,1)], self[key:sub(2,2)])
   end
+  if vec3 and key:find("^[xy][xy][xy]$") then
+    return vec3(self[key:sub(1,1)], self[key:sub(2,2)], self[key:sub(3,3)])
+  end
   return fn[key]
 end
 

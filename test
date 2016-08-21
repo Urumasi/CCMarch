@@ -1,0 +1,10 @@
+local u3d = require "u3d"
+
+local env = u3d.createEnvironment()
+env.maxsteps = 200
+
+env:add(u3d.newSphere(10))
+
+env:render(15, 15)
+
+os.pullEvent("key")

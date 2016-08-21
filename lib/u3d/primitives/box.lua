@@ -1,11 +1,9 @@
-return function(pos, size)
-
-end
-
---[[
-float sdBox( vec3 p, vec3 b )
-{
-  vec3 d = abs(p) - b;
-  return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
+return {
+  distance = function(pos, size)
+    local d = pos:abs() - size
+    return math.min(math.max(d.x, d.y, d.z), 0) + d:max(0):length()
+  end,
+  normal = function(pos, size)
+    return vec3(1, 0, 0)
+  end,
 }
-]]

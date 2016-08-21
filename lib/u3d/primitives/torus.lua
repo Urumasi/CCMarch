@@ -1,5 +1,9 @@
-float sdTorus( vec3 p, vec2 t )
-{
-  vec2 q = vec2(length(p.xz)-t.x,p.y);
-  return length(q)-t.y;
+return {
+  distance = function(pos, t)
+    local q = vec2(pos.xz:length()-t.x, p.y)
+    return q:length()-t.y
+  end,
+  normal = function(pos, t)
+    return vec3(1, 0, 0)
+  end,
 }
