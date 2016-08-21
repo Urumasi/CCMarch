@@ -92,7 +92,7 @@ do -- Environment
             context.setBackgroundColor(u3d.getColor("green", (dot+0.5)/1.5))
           end
         end
-        if not hit then context.setBackgroundColor(colors.lightGray) end
+        if not hit then context.setBackgroundColor(colors.black) end
         context.write(" ")
         _tryYield()
       end
