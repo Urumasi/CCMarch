@@ -5,6 +5,11 @@ env.maxsteps = 200
 
 env:add(u3d.newSphere(10))
 
-env:render(15, 15)
+local monitor = peripheral.wrap("right")
+monitor.setBackgroundColor(colors.black)
+monitor.clear()
+monitor.setTextScale(0.5)
+
+env:render(12, 15, monitor)
 
 os.pullEvent("key")
