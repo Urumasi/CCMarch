@@ -43,8 +43,9 @@ do -- Environment
   local _yieldCounter = 0
   local function _tryYield()
     _yieldCounter = _yieldCounter+1
-    if _yieldCounter>100 then
-      sleep(0.1)
+    if _yieldCounter>1000 then
+      os.queueEvent("fake")
+      os.pullEvent("fake")
       _yieldCounter = 0
     end
   end
@@ -91,10 +92,10 @@ do -- Environment
             local dot = norm:dot(self.lightdir)
             context.setBackgroundColor(u3d.getColor("green", (dot+0.5)/1.5))
           end
+          _tryYield()
         end
         if not hit then context.setBackgroundColor(colors.black) end
         context.write(" ")
-        _tryYield()
       end
     end
   end

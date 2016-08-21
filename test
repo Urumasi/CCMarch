@@ -1,9 +1,11 @@
 local u3d = require "u3d"
+local vec3 = require "vec3"
 
 local env = u3d.createEnvironment()
 env.maxsteps = 200
 
-env:add(u3d.newSphere(10))
+--env:add(u3d.newSphere(10))
+env:add(u3d.newBox(vec3(10, 10, 10)))
 
 local monitor = peripheral.wrap("right")
 monitor.setBackgroundColor(colors.black)
