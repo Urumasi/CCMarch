@@ -1,3 +1,5 @@
+local vec3 = require "vec3"
+
 return {
   distance = function(pos, size)
     local d = pos:abs() - size
